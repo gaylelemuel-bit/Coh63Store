@@ -1,0 +1,14 @@
+.quanity-picker{
+    display:flex;
+}
+button{
+    font-size: 10px;
+    margin: 2px;
+}
+
+
+@media (min-width: 600px) {
+    .quanity-picker{
+        margin-left: 30%;
+    }
+}

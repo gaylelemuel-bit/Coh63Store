@@ -1,0 +1,93 @@
+/* --- Footer Mobile Styles (Default: Stacked Vertically) --- */
+.foorBar { /* Note: The class name is 'foorBar' as provided in your HTML */
+    background-color: #333;
+    color: white;
+    padding: 20px 0 10px 0;
+    margin-top: 40px; /* Space above the footer */
+    border-top: 1px solid #444;
+}
+
+.foot-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 10px; /* Matches mobile body padding */
+    display: flex;
+    flex-direction: column; /* Stack all sections vertically on mobile */
+    gap: 20px; /* Space between stacked sections */
+}
+
+.foot-brand h2 {
+    margin: 0 0 10px 0;
+    color: white;
+    font-size: 1.4em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.footer-section h4 {
+    color: #3498db; /* Use the accent blue for section headers */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li a, .foot-link, .footer-bottom-bar a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.8; /* Improve readability */
+    display: block; /* Makes links take full width for easier mobile tapping */
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover, .foot-link:hover, .footer-bottom-bar a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-media .foot-link {
+    display: inline-block; /* Revert social links back to inline flow */
+    margin-right: 15px;
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #777;
+}
+
+.footer-bottom-bar p {
+    margin: 5px 0;
+}
+
+
+/* --- Footer Tablet+ Styles (@media min-width: 700px) --- */
+
+@media (min-width: 700px) {
+    .foot-container {
+        padding: 0 20px; /* Matches tablet body padding */
+        /* On larger screens, rearrange into columns using CSS Grid */
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr; /* Brand gets more space */
+        gap: 30px;
+    }
+
+    /* Move the bottom bar out of the flow to span all columns */
+    .footer-bottom-bar {
+        grid-column: 1 / span 4; /* Spans all 4 columns */
+        text-align: left; /* Align text back to left */
+    }
+
+    .foot-brand h2, .footer-section h4 {
+        border-bottom: none; /* Remove horizontal lines within columns on desktop */
+        padding-bottom: 0;
+    }
+}
