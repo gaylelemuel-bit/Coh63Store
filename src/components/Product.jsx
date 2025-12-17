@@ -1,76 +1,41 @@
+import { useState } from "react";
 import "./Product.css";
 import QuantityPicker from "./QuantityPicker";
 
+function Product(props) {
+  const [quantity, setQuantity] = useState(1);
 
-function Product(){
-    return(
-        <>
-  <h1>Oversize Fleeced Hoodie</h1>
-  <img src="Hoodie.png" alt="oversized hoodie" />
-  <div classname="rating">
-    ★★★★☆ <span>(42 reviews)</span>
-  </div>
-  <p classname="price">$29.99</p>
-  <p>
-    {" "}
-    Oversize Fleeced Hoodie is a game-changer. With its ultra-soft fleece and
-    bold oversized fit, it’s the perfect piece to elevate any collection. Ideal
-    for custom prints, this hoodie combines unbeatable comfort with premium
-    quality.
-  </p>
-  <form classname="form-container">
-    <label classname="size-container">Size:</label>
-    <select classname="size" required="">
-      <option value="select">--select--</option>
-      <option value="S">S</option>
-      <option value="M">M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
-      <option value="XXL">XXL</option>
-      <option value="XXXL">XXXL</option>
-    </select>
-    <div classname="quantity">
-      <quantitypicker></quantitypicker>
+  function handleQuantityChange(qty) {
+    console.log("Quantity changed to", qty);
+    setQuantity(qty);
+  }
+
+  function getTotal() {
+    let total = props.data.price * quantity;
+    return total.toFixed(2);
+  }
+
+  return (
+  <div className="card h-100 border-0 shadow-sm hover-shadow transition">
+    <div className="p-3 bg-light rounded-top">
+      <img src={props.data.image} className="card-img-top object-fit-contain" style={{ height: "200px" }} alt={props.data.title} />
     </div>
-    <button classname="cart" type="submit">
-      Add to Cart
-    </button>
-  </form>
-  <section classname="product-specs">
-    <h2>Specifications</h2>
-    <table>
-      <caption>Detailed material and care instructions</caption>
-      <tbody>
-        <tr>
-          <th>Material</th>
-          <td>100% Organic Cotton</td>
-        </tr>
-        <tr>
-          <th>Color</th>
-          <td>White</td>
-        </tr>
-        <tr>
-          <th>Care Instructions</th>
-          <td>Machine wash cold, tumble dry low.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-  <section classname="reviews">
-    <h2>Customer Reviews</h2>
-    <article classname="review-content">
-      <h3>"Great fit and quality!"</h3>
-      <p>— John Doe (Verified Buyer)</p>
-      <p>⭐⭐⭐⭐⭐</p>
-      <p>
-        Really happy with this hoodie, fits perfectly and the cotton is super
-        soft.
-      </p>
-    </article>
-  </section>
-</>
+    
+     <div className="d-flex justify-content-between mt-3 mb-2">
+          <span className="text-muted">Unit: ${props.data.price.toFixed(2)}</span>
+          <span className="fw-bold text-primary">Total: ${getTotal()}</span>
+        </div>
 
-    )
+      <div className="mt-auto">
+        <div className="d-flex justify-content-center align-items-center mb-3">
+          <QuantityPicker onChange={handleQuantityChange} />
+        </div>
+        <button className="btn btn-dark w-100 py-2 rounded-3 shadow-sm" type="button">
+          Add to Cart
+        </button>
+        </div>
+     </div>
+);
 }
 
 export default Product;

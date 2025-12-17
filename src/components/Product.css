@@ -12,7 +12,7 @@ body {
 
 /* Product Section Styling */
 .product-details {
-    background-color: #e4e2e2;
+    background-color: #8c908c;
     padding: 20px;
     border-radius: 0; /* No corner radius on mobile for full screen use */
     box-shadow: none; /* No shadow on mobile */
@@ -66,6 +66,9 @@ select.size, button[type="submit"] {
     border-radius: 4px;
     font-size: 1em;
     cursor: pointer;
+}
+.quantity{
+    margin-left: 50px;
 }
 
 button[type="submit"] {
@@ -160,5 +163,49 @@ caption {
 }
     img {
         margin-left:15% ;
+    }
+}
+
+
+/* start here*/
+
+
+
+/* --- 4. Large Desktop Styles (@media min-width: 1100px) --- */
+@media (min-width: 1100px) {
+    body {
+        max-width: 1100px; /* Expand max width to accommodate two columns */
+    }
+
+    .product-details {
+        display: flex;          /* Use Flexbox for the main layout */
+        gap: 40px;              /* Space between the two main columns */
+    }
+    
+    /* Define widths for the two main sections */
+    .image-section {
+        flex: 1; /* Takes up one part of the space */
+        min-width: 0; /* Prevents overflow issues */
+    }
+    
+    .info-section {
+        flex: 1; /* Takes up the other part of the space */
+    }
+    
+    /* Adjust specific elements within the new layout */
+    img {
+        margin-left: 0; /* Reset previous margin rules */
+        max-width: 100%;
+        width: 100%; /* Ensure the image fills its container */
+    }
+
+    /* Adjust the cart element positioning if needed in the new layout */
+    .cart {
+        margin-left: auto; /* Pushes the cart to the right within its new container */
+    }
+
+    table {
+        /* Optional: adjust table width if it looks too wide in the info section */
+        width: auto; 
     }
 }

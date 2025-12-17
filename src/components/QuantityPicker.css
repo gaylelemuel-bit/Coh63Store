@@ -1,5 +1,6 @@
 .quanity-picker{
     display:flex;
+    margin-left: 35%;
 }
 button{
     font-size: 10px;
@@ -7,8 +8,8 @@ button{
 }
 
 
-@media (min-width: 600px) {
+@media (min-width: 900px) {
     .quanity-picker{
-        margin-left: 30%;
+        margin-left: 41%;
     }
 }

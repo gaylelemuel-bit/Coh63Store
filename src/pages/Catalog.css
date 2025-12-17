@@ -1,0 +1,32 @@
+/* Custom Global Styles */
+body {
+  background-color: #f8f9fa; /* Light grey background */
+  font-family: 'Inter', sans-serif; /* Clean modern font if available */
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+
+/* Make images fit nicely */
+.object-fit-contain {
+  object-fit: contain;
+}
+
+/* Style for the Quantity Picker buttons inside Bootstrap context */
+.quantity-picker button {
+  border: 1px solid #dee2e6;
+  background: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+}
+
+.quantity-picker label {
+  padding: 0 15px;
+  font-weight: bold;
+}

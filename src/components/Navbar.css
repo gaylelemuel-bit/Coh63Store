@@ -1,66 +1,16 @@
-.navbar {
-    background-color: #333; 
-    color: white;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 20px; 
-}
-
-.navbar-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 10px; /* Matches mobile padding of the body */
-}
-
 .navbar-brand h1 {
-    margin: 0;
-    font-size: 1.2em; /* Smaller, cleaner brand name */
-    color: white; /* Ensure color is white inside h1 */
-}
-
-.navbar-menu {
-    /* For a mobile-first approach, the menu might be hidden by default
-       and toggled with JavaScript, but here we show it horizontally */
-    display: flex;
-    align-items: center;
-}
-
-.navbar-nav {
-    list-style: none; /* Removes bullet points */
-    padding: 0;
-    margin: 0;
-    display: flex;
-    /* On mobile, items are close together horizontally */
-    gap: 15px; 
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 .nav-link {
-    color: white;
-    text-decoration: none; /* Removes underline */
-    font-weight: 500;
-    transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #3498db; /* Blue accent color on hover */
+  color: #0d6efd !important; 
 }
 
-
-/* --- Navbar Tablet+ Styles (@media min-width: 600px) --- */
-
-@media (min-width: 600px) {
-    .navbar-container {
-        padding: 0 20px; /* Matches tablet padding of the body */
-    }
-
-    .navbar-brand h1 {
-        font-size: 1.5em; /* Slightly larger brand name on desktop */
-    }
-
-    .navbar-nav {
-        gap: 25px; /* More space between links on larger screens */
-    }
+.navbar-brand {
+    letter-spacing: 1px;
 }
