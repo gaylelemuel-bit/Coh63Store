@@ -44,15 +44,13 @@ function Catalog() {
   function clearFilter() {
     setProductsToShow(products);
   }
-
+ 
 return (
   <div className="catalog-page-container container-fluid py-5 px-lg-5">
-    {/* Header Section */}
     <header className="text-center mb-5">
       <h1 className="display-4 fw-bold text-dark">Our Collection</h1>
       <p className="lead text-muted">Premium apparel designed for comfort and style.</p>
       
-      {/* Category Navigation - Centered and Clean */}
       <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
         <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={clearFilter}>All</button>
         <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("clothing")}>Clothing</button>
@@ -61,7 +59,6 @@ return (
       </div>
     </header>
 
-    {/* Product Grid - Mobile: 1 col, Tablet: 2 col, Desktop: 4 col */}
     <div className="row g-4">
       {productsToShow.map(prod => (
         <div key={prod._id} className="col-12 col-lg-4 col-xl-3">
