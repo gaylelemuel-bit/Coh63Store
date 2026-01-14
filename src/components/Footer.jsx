@@ -7,9 +7,9 @@ function Footerbar() {
         <div className="row text-center text-md-start">
           
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 font-weight-bold text-primary">G2G</h5>
+            <h5 className="mb-4 font-weight-bold text-primary">Enduo Apparel</h5>
             <p>
-              Premium apparel designed for comfort and style. Elevate your everyday wardrobe with G2G.
+              Premium wear for the purpose-driven life.
             </p>
           </div>
 
@@ -45,7 +45,7 @@ function Footerbar() {
         <div className="row align-items-center">
           <div className="col-md-7 col-lg-8">
             <p className="small text-muted">
-              &copy; 2025 G2G Inc. All rights reserved.
+              &copy; 2025 Seek First Inc. All rights reserved.
             </p>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css"; 
 
 function Navbar() {
@@ -6,7 +7,7 @@ function Navbar() {
       <div className="container">
         
         <a className="navbar-brand d-flex align-items-center fw-bold fs-3" href="/">
-          <span className="me-2">𑣲†</span> G2G
+          <span className="me-2">𑣲†</span> Enduo Apparel
         </a>
 
         <button 
@@ -24,16 +25,19 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto text-uppercase small fw-semibold">
             <li className="nav-item">
-              <a className="nav-link px-3" href="#home">Home</a>
+              <Link className="nav-link px-3" to={"/"}>Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#catalog">Catalog</a>
+              <Link className="nav-link px-3" to={"/catalog"}>Catalog</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#about">About</a>
+              <Link className="nav-link px-3" to={"/about"}>About</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link px-3" href="#contact">Contact</a>
+              <Link className="nav-link px-3" to={"/contact"}>Contact</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link px-3" to={"/admin"}>Admin</Link>
             </li>
           </ul>
           
