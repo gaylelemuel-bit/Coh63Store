@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react';
+import { IconTags } from '@tabler/icons-react';
+
 
 function Admin() {
     // 1. State Declarations
@@ -10,9 +12,9 @@ function Admin() {
     const [productPrice, setPrice] = useState('');
     const [couponDiscount, setCouponDiscount] = useState(0);
     const [coupons, setCoupons] = useState([]);
-    const [items, setItems] = useState([]); // Added missing items state
+    const [items, setItems] = useState([]); 
 
-    // 2. Logic Functions (Now inside the Admin component scope)
+    
     function addProduct() {
         const newProduct = {
             title: productTitle,
@@ -21,13 +23,15 @@ function Admin() {
             price: productPrice
         };
 
-        setItems([...items, newProduct]); // Use setItems, not newItem
+        setItems([...items, newProduct]); // Use setItems
         
         // Clear fields
         setTitle('');
         setCategory('');
         setImage('');
         setPrice('');
+        setCouponCode('');
+        setCouponDiscount('');
     }
 
     function saveCoupon() {
@@ -58,8 +62,8 @@ function Admin() {
                             <input className='form-control' type='text' value={productCategory} onChange={(e) => setCategory(e.target.value)} />
                         </div>
                         <div className='mb-4'>
-                            <label className='form-label'>Image (URL)</label>
-                            <input className='form-control' type='text' value={productImage} onChange={(e) => setImage(e.target.value)} />
+                            <label className='form-label '>Image (URL)</label>
+                            <input placeholder="https://images.unsplash.com/jesus-jacket"className='form-control text-primary' type='text' value={productImage} onChange={(e) => setImage(e.target.value)} />
                         </div>
                         <div className='mb-4'>
                             <label className='form-label'>Price</label>
@@ -96,7 +100,7 @@ function Admin() {
                             <label className='form-label'>Discount %:</label>
                             <input className='form-control' type='number' value={couponDiscount} onChange={(e) => setCouponDiscount(e.target.value)} />
                         </div>
-                        <button className='btn btn-primary mt-2' onClick={saveCoupon}>Save Coupon</button>
+                        <button className='btn btn-primary mt-2' onClick={saveCoupon}><IconTags stroke={2} />Save Coupon</button>
                     </div>
                     <div className="mt-4">
                         <h5>Coupons List</h5>

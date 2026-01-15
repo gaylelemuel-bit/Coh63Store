@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import GlobalContext from '../State/GlobalContext';
+import { IconUserCircle,IconShoppingCart } from '@tabler/icons-react';
 import "./Navbar.css"; 
 
 function Navbar() {
+
+  const user = useContext(GlobalContext).user
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
       <div className="container">
@@ -40,9 +46,12 @@ function Navbar() {
               <Link className="nav-link px-3" to={"/admin"}>Admin</Link>
             </li>
           </ul>
+          <div>
+            <div><IconUserCircle stroke={2} color={'royalblue'} />{user.name}</div>
+          </div>
           
           <div className="ms-lg-3 d-none d-lg-block">
-             <button className="btn btn-outline-dark rounded-pill px-4 btn-sm">Cart (0)</button>
+             <button className="btn btn-outline-dark rounded-pill px-4 btn-sm"><IconShoppingCart stroke={2} />Cart (0)</button>
           </div>
         </div>
       </div>

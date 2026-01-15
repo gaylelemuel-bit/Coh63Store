@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Carousel } from 'bootstrap'; 
 import './Home.css';
+import { IconTruckDelivery,IconCubeSend } from '@tabler/icons-react';
+
+
 function Home() {
   const carouselRef = useRef(null);
 
@@ -44,7 +47,7 @@ function Home() {
     <>
     {/* 1. Announcement Bar */}
     <div className="bg-dark text-white text-center py-2 small fw-bold text-uppercase tracking-widest">
-      Free shipping on all orders over $75 — Spread the Word
+      <IconTruckDelivery stroke={2} /> Free shipping on all orders over $75 — Spread the Word <IconCubeSend stroke={2} />
     </div>
     <div className="container py-5">
         <div className="bg-light p-2 rounded-4 mb-5 text-center border-start border-dark border-5 shadow-sm">
@@ -73,7 +76,6 @@ function Home() {
         <div className="carousel-inner">
           {productImages.map((img, index) => (
             <div key={index} className={`  carousel-item ${index === 0 ? "active" : ""}`}>
-              {/* This is the <img> tag implementation */}
               <img 
                 src={img.src} 
                 className="d-flex flex-xxl-shrink-1  w-100 object-fit-cover" 

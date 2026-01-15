@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { IconTruckReturn, IconPhone, IconInfoHexagon, IconMail, IconRulerMeasure2, IconShieldLock, IconClipboardText, IconBriefcase, IconHistory } from '@tabler/icons-react';
 
 function Footerbar() {
   return (
@@ -15,23 +16,23 @@ function Footerbar() {
 
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">Our Story</h6>
-            <p><a href="/about" className="text-light text-decoration-none small">Our Story</a></p>
-            <p><a href="/careers" className="text-light text-decoration-none small">Careers</a></p>
-            <p><a href="/terms" className="text-light text-decoration-none small">Terms of Service</a></p>
-            <p><a href="/privacy" className="text-light text-decoration-none small">Privacy Policy</a></p>
+            <p><a href="/about" className="text-light text-decoration-none small"><IconHistory stroke={2} /> Our Story</a></p>
+            <p><a href="/careers" className="text-light text-decoration-none small"><IconBriefcase stroke={2} /> Careers</a></p>
+            <p><a href="/terms" className="text-light text-decoration-none small"><IconClipboardText stroke={2} /> Terms of Service</a></p>
+            <p><a href="/privacy" className="text-light text-decoration-none small"><IconShieldLock stroke={2} /> Privacy Policy</a></p>
           </div>
 
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">Customer Care</h6>
-            <p><a href="/contact" className="text-light text-decoration-none small">Contact Us</a></p>
-            <p><a href="/shipping" className="text-light text-decoration-none small">Shipping & Returns</a></p>
-            <p><a href="/faq" className="text-light text-decoration-none small">FAQ</a></p>
-            <p><a href="/size-guide" className="text-light text-decoration-none small">Size Guide</a></p>
+            <p><a href="/contact" className="text-light text-decoration-none small"><IconMail stroke={2} /> Contact Us</a></p>
+            <p><a href="/shipping" className="text-light text-decoration-none small"><IconTruckReturn stroke={2} /> Shipping & Returns</a></p>
+            <p><a href="/faq" className="text-light text-decoration-none small"><IconInfoHexagon stroke={2} /> FAQ</a></p>
+            <p><a href="/size-guide" className="text-light text-decoration-none small"><IconRulerMeasure2 stroke={2} /> Size Guide</a></p>
           </div>
 
           <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">Connect</h6>
-            <p><i className="bi bi-telephone me-2"></i> <a href="tel:+1-555-321-0537" className="text-light text-decoration-none">(555) 321-0537</a></p>
+            <p><i className="bi bi-telephone me-2"></i> <a href="tel:+1-555-321-0537" className="text-light text-decoration-none"><IconPhone stroke={2} /> (555) 321-0537</a></p>
             <div className="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
                 <a href="#" className="text-light fs-5"><i className="bi bi-instagram"></i></a>
                 <a href="#" className="text-light fs-5"><i className="bi bi-facebook"></i></a>

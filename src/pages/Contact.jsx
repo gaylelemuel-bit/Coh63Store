@@ -1,3 +1,4 @@
+import { IconSend } from '@tabler/icons-react';
 
 function Contact() {
     return (
@@ -36,7 +37,7 @@ function Contact() {
                             <label htmlFor="message">Message</label>
                         </div>
 
-                        <button type="submit" className="btn btn-dark w-100 py-2 fw-bold shadow-sm">
+                        <button type="submit" className="btn btn-dark w-100 py-2 fw-bold shadow-sm"><IconSend stroke={2} />
                             SEND MESSAGE
                         </button>
                     </form>

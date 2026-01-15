@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IconMailOff,IconMail } from '@tabler/icons-react';
 import './About.css'
 
 function About() {
@@ -15,136 +16,131 @@ function About() {
                 <div className="text-center mb-5">
                     <h1 className="display-4 display-md-3  fw-bold border-bottom d-inline-block pb-2 text-uppercase">About Us</h1>
                     <div className='my-4'>
-                    <img src='https://i.etsystatic.com/53685273/r/il/d02a74/6452033366/il_fullxfull.6452033366_6loa.jpg' alt=''
-                    style={{ maxHeight: '500px', width: '80%', objectFit: 'contain' }}/>
-                    <h3 className="h5 fw-bold mb-1">Marcus Stone</h3>
-                    <p className="text-danger small fw-semibold text-uppercase mb-2">ceo</p>
-                    <p className="card-text text-muted">Retired military veteran that believes knowlegde of Jesus Christ gives you eternal life .</p>
+                        <img src='https://i.etsystatic.com/53685273/r/il/d02a74/6452033366/il_fullxfull.6452033366_6loa.jpg' alt=''
+                            style={{ maxHeight: '500px', width: '80%', objectFit: 'contain' }} />
+                        <h3 className="h5 fw-bold mb-1">Marcus Stone</h3>
+                        <p className="text-danger small fw-semibold text-uppercase mb-2">ceo</p>
+                        <p className="card-text text-muted">Retired military veteran that believes knowlegde of Jesus Christ gives you eternal life .</p>
                     </div>
                 </div>
-               <section className="py-5 bg-light">
-  <div className="container"> {/* 'container' keeps the 3-3 grid centered and balanced */}
-    {/* Section Heading */}
-    <div className="row mb-5">
-      <div className="col text-center">
-        <h2 className="fw-bold text-uppercase">Meet The Team</h2>
-        <div className="mx-auto bg-primary" style={{ height: '.2rem', width: '5rem' }}></div>
-      </div>
-    </div>
+                <section className="py-5 bg-light">
+                    <div className="container"> {/* 'container' keeps the 3-3 grid centered and balanced */}
+                        {/* Section Heading */}
+                        <div className="row mb-5">
+                            <div className="col text-center">
+                                <h2 className="fw-bold text-uppercase">Meet The Team</h2>
+                                <div className="mx-auto bg-primary" style={{ height: '.2rem', width: '5rem' }}></div>
+                            </div>
+                        </div>
 
-    {/* Team Grid: 1 per row mobile, 2 per row tablet, 3 per row desktop */}
-    <div className="row g-4 justify-content-center">
-      
-      {/* Member 1 */}
-      <div className="col-12 col-md-6 col-lg-4">
-        <div className="card h-100 border-0 shadow-sm text-center">
-          <img 
-            src="https://i.pinimg.com/736x/72/c3/e4/72c3e410e9164003de868a2495e9f6e2.jpg" 
-            className="card-img-top object-fit-cover" 
-            alt="Jane Doe" 
-            style={{ height: '350px' }} 
-          />
-          <div className="card-body p-4">
-            <h3 className="h5 fw-bold mb-1">Olivia Sterling</h3>
-            <p className="text-primary small fw-semibold text-uppercase mb-2">Business Anaylst </p>
-            <p className="card-text text-muted">Specializes in decoding consumer behavior and market trends to ensure our store stays ahead of the curve.</p>
-          </div>
-        </div>
-      </div>
+                        {/* Team Grid: 1 per row mobile, 2 per row tablet, 3 per row desktop */}
+                        <div className="row g-4 justify-content-center">
 
-      {/* Member 2 */}
-      <div className="col-12 col-md-6 col-lg-4">
-        <div className="card h-100 border-0 shadow-sm text-center">
-          <img 
-            src="https://faithkind.com/cdn/shop/products/Trust-God-Bro-T-shirt.png?v=1630313469&width=416" 
-            className="card-img-top object-fit-cover" 
-            alt="Jane Doe" 
-            style={{ height: '350px' }}
-          />
-          <div className="card-body p-4">
-            <h3 className="h5 fw-bold mb-1">Winston Banks</h3>
-            <p className="text-primary small fw-semibold text-uppercase mb-2">Designer</p>
-            <p className="card-text text-muted">Transforms scripture and fashion into visual appealing material.</p>
-          </div>
-        </div>
-      </div>
+                            {/* Member 1 */}
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100 border-0 shadow-sm text-center">
+                                    <img
+                                        src="https://i.pinimg.com/736x/72/c3/e4/72c3e410e9164003de868a2495e9f6e2.jpg"
+                                        className="card-img-top object-fit-cover"
+                                        alt="Jane Doe"
+                                        style={{ height: '350px' }}
+                                    />
+                                    <div className="card-body p-4">
+                                        <h3 className="h5 fw-bold mb-1">Olivia Sterling</h3>
+                                        <p className="text-primary small fw-semibold text-uppercase mb-2">Business Anaylst </p>
+                                        <p className="card-text text-muted">Specializes in decoding consumer behavior and market trends to ensure our store stays ahead of the curve.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-      {/* Member 3 */}
-      <div className="col-12 col-md-6 col-lg-4">
-        <div className="card h-100 border-0 shadow-sm text-center">
-          <img 
-            src="https://i.etsystatic.com/26179306/r/il/651caf/4605445123/il_fullxfull.4605445123_e06p.jpg" 
-            className="card-img-top object-fit-cover" 
-            alt="Jane Doe" 
-            style={{ height: '350px' }}
-          />
-          <div className="card-body p-4">
-            <h3 className="h5 fw-bold mb-1">Naomi Knight</h3>
-            <p className="text-primary small fw-semibold text-uppercase mb-2">Marketing Manager</p>
-            <p className="card-text text-muted">Specializes in "puttin it on" for jesus for our global community.</p>
-          </div>
-        </div>
-      </div>
+                            {/* Member 2 */}
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100 border-0 shadow-sm text-center">
+                                    <img
+                                        src="https://faithkind.com/cdn/shop/products/Trust-God-Bro-T-shirt.png?v=1630313469&width=416"
+                                        className="card-img-top object-fit-cover"
+                                        alt="Jane Doe"
+                                        style={{ height: '350px' }}
+                                    />
+                                    <div className="card-body p-4">
+                                        <h3 className="h5 fw-bold mb-1">Winston Banks</h3>
+                                        <p className="text-primary small fw-semibold text-uppercase mb-2">Designer</p>
+                                        <p className="card-text text-muted">Transforms scripture and fashion into visual appealing material.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-      {/* Member 4 */}
-      <div className="col-12 col-md-6 col-lg-4">
-        <div className="card h-100 border-0 shadow-sm text-center">
-          <img 
-            src="https://i.etsystatic.com/54165517/r/il/f31c3d/6199409096/il_fullxfull.6199409096_lna8.jpg" 
-            className="card-img-top object-fit-cover" 
-            alt="Jane Doe" 
-            style={{ height: '350px' }}
-          />
-          <div className="card-body p-4">
-            <h3 className="h5 fw-bold mb-1">Xavier Cross</h3>
-            <p className="text-primary small fw-semibold text-uppercase mb-2">Developer</p>
-            <p className="card-text text-muted">Backbone of our digital infrastructure while specializing in high-performance frameworks</p>
-          </div>
-        </div>
-      </div>
+                            {/* Member 3 */}
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100 border-0 shadow-sm text-center">
+                                    <img
+                                        src="https://i.etsystatic.com/26179306/r/il/651caf/4605445123/il_fullxfull.4605445123_e06p.jpg"
+                                        className="card-img-top object-fit-cover"
+                                        alt="Jane Doe"
+                                        style={{ height: '350px' }}
+                                    />
+                                    <div className="card-body p-4">
+                                        <h3 className="h5 fw-bold mb-1">Naomi Knight</h3>
+                                        <p className="text-primary small fw-semibold text-uppercase mb-2">Marketing Manager</p>
+                                        <p className="card-text text-muted">Specializes in "puttin it on" for jesus for our global community.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-      {/* Member 5 */}
-      <div className="col-12 col-md-6 col-lg-4">
-        <div className="card h-100 border-0 shadow-sm text-center">
-          <img 
-            src="https://i.etsystatic.com/24377826/r/il/dac87d/4315802866/il_794xN.4315802866_6uad.jpg" 
-            className="card-img-top object-fit-cover" 
-            alt="Jane Doe" 
-            style={{ height: '350px', }}
-          />
-          <div className="card-body p-4">
-            <h3 className="h5 fw-bold mb-1">Audrey Miller</h3>
-            <p className="text-primary small fw-semibold text-uppercase mb-2">Qualiity Assurance</p>
-            <p className="card-text text-muted"> believes that every interaction is an opportunity to build a relationship.</p>
-          </div>
-        </div>
-      </div>
+                            {/* Member 4 */}
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100 border-0 shadow-sm text-center">
+                                    <img
+                                        src="https://i.etsystatic.com/54165517/r/il/f31c3d/6199409096/il_fullxfull.6199409096_lna8.jpg"
+                                        className="card-img-top object-fit-cover"
+                                        alt="Jane Doe"
+                                        style={{ height: '350px' }}
+                                    />
+                                    <div className="card-body p-4">
+                                        <h3 className="h5 fw-bold mb-1">Xavier Cross</h3>
+                                        <p className="text-primary small fw-semibold text-uppercase mb-2">Developer</p>
+                                        <p className="card-text text-muted">Backbone of our digital infrastructure while specializing in high-performance frameworks</p>
+                                    </div>
+                                </div>
+                            </div>
 
-      {/* Member 6 */}
-      <div className="col-12 col-md-6 col-lg-4">
-        <div className="card h-100 border-0 shadow-sm text-center">
-          <img 
-            src="https://i.etsystatic.com/50067715/r/il/dbf757/5767016450/il_1080xN.5767016450_bykh.jpg" 
-            className="card-img-top object-fit-cover" 
-            alt="Jane Doe" 
-            style={{ height: '350px' }}
-          />
-          <div className="card-body p-4">
-            <h3 className="h5 fw-bold mb-1">Mateo Wells</h3>
-            <p className="text-primary small fw-semibold text-uppercase mb-2">Content Writer</p>
-            <p className="card-text text-muted"> The custodian of our brand’s personality and believes that every product has a story.</p>
-          </div>
-        </div>
-      </div>
+                            {/* Member 5 */}
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100 border-0 shadow-sm text-center">
+                                    <img
+                                        src="https://i.etsystatic.com/24377826/r/il/dac87d/4315802866/il_794xN.4315802866_6uad.jpg"
+                                        className="card-img-top object-fit-cover"
+                                        alt="Jane Doe"
+                                        style={{ height: '350px', }}
+                                    />
+                                    <div className="card-body p-4">
+                                        <h3 className="h5 fw-bold mb-1">Audrey Miller</h3>
+                                        <p className="text-primary small fw-semibold text-uppercase mb-2">Qualiity Assurance</p>
+                                        <p className="card-text text-muted"> believes that every interaction is an opportunity to build a relationship.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-    </div>
-  </div>
-</section>
+                            {/* Member 6 */}
+                            <div className="col-12 col-md-6 col-lg-4">
+                                <div className="card h-100 border-0 shadow-sm text-center">
+                                    <img
+                                        src="https://i.etsystatic.com/50067715/r/il/dbf757/5767016450/il_1080xN.5767016450_bykh.jpg"
+                                        className="card-img-top object-fit-cover"
+                                        alt="Jane Doe"
+                                        style={{ height: '350px' }}
+                                    />
+                                    <div className="card-body p-4">
+                                        <h3 className="h5 fw-bold mb-1">Mateo Wells</h3>
+                                        <p className="text-primary small fw-semibold text-uppercase mb-2">Content Writer</p>
+                                        <p className="card-text text-muted"> The custodian of our brand’s personality and believes that every product has a story.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-
-
-
-
+                        </div>
+                    </div>
+                </section>
                 <div className="row justify-content-center">
                     <div className="col-lg-8">
                         <div className="mb-5">
@@ -177,8 +173,8 @@ function About() {
                             ) : (
                                 <p>Click the button below to see my email</p>
                             )}
-                            <button className='btn btn-secondary py-1' onClick={hideEmail}>Hide Email</button>
-                            <button className='btn btn-primary py-1 ms-2' onClick={showEmail}>Show Email</button>
+                            <button className='btn btn-secondary py-1' onClick={hideEmail}><IconMailOff stroke={2} />Hide Email</button>
+                            <button className='btn btn-primary py-1 ms-2' onClick={showEmail}><IconMail stroke={2} />Show Email</button>
                         </div>
                     </div>
                 </div>

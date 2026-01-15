@@ -21,10 +21,10 @@ function QuantityPicker(props){
         props.onChange(tempValue);
     }
     return(
-        <div className="quantity-picker">
-            <button type="button" onClick={handleDecrease}>-</button>
+        <div className="quantity-picker ">
+            <button className='text-dark' type="button" onClick={handleDecrease}>-</button>
             <label>{quantity}</label>
-            <button type="button" onClick={handleIncrease}>+</button>
+            <button className='text-dark' type="button" onClick={handleIncrease}>+</button>
         </div>
     )
 }

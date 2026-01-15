@@ -10,6 +10,8 @@ import NotFound from './pages/NotFound';
 import Footerbar from './components/Footer';
 import Navbar from './components/NavBar';
 
+import GlobalProvider from './State/GlobalProvider';
+
 import './App.css';
 // Import all of Bootstrap’s CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,7 +19,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
   return (
-    <BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
       <div className="container-fluid p-0 d-flex flex-column min-vh-100" >
         <Navbar/>
         <main className='py-4 px-4 container'>
@@ -34,6 +37,8 @@ function App() {
        <Footerbar/> 
       </div>
     </BrowserRouter>
+    </GlobalProvider>
+    
   )
 }
 
