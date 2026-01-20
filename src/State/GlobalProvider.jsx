@@ -1,13 +1,12 @@
 import { useState } from "react";
 import GlobalContext from "./GlobalContext";
-import { NavItem } from "react-bootstrap";
 
 
 function GlobalProvider(props){
     const [cart, setCart] = useState([])
     const [user, setUser] = useState({name:'Lemuel', id:63})
 
-    function addProductToCart(){
+    function addProductToCart(product){
         setCart([...cart, product])
     }
 
@@ -15,10 +14,10 @@ function GlobalProvider(props){
         setCart ([])
     }
 
-    function removeProductFromCart(){
+    function removeProductFromCart(productId){
         console.log('removing', productId)
 
-        const updateCart = cart.filter(NavItem._id !== productId)
+        const updateCart = cart.filter(item => item._id !== productId)
         setCart(updateCart)
     }
 

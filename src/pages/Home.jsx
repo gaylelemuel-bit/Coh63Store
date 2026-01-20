@@ -1,11 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect,useContext, useRef,useState } from 'react';
 import { Carousel } from 'bootstrap'; 
 import './Home.css';
 import { IconTruckDelivery,IconCubeSend } from '@tabler/icons-react';
+import GlobalContext from "../State/GlobalContext";
 
 
 function Home() {
   const carouselRef = useRef(null);
+  const globalAdd = useContext(GlobalContext).addProductToCart;
+
+  const onAdd = (product) => {
+    console.log("Adding to cart:", product.name);
+     const fixedProduct = {
+      _id: product.id,
+      title: product.name,
+      image: product.img,
+      price: parseFloat(product.price.replace('$', '')), 
+      quantity: 1 
+    };
+     globalAdd(fixedProduct);
+    alert(`${product.name} added to cart!`);
+  };
 
   const productImages = [
     { src: "https://faithleticsfamily.com/cdn/shop/files/303CEF91-CDD6-4A75-94A1-40479A541D0B_ae0bfd2c-c9d9-42f6-8ef9-e5bcf7648838.jpg?v=1694023188" },
@@ -124,6 +139,10 @@ function Home() {
         <div className="pt-3">
           <h6 className="m-0 p-0 fw-bold">{product.name}</h6>
           <p className="text-muted small mb-4">{product.price}</p>
+              <button 
+                onClick={() => onAdd(product)}
+                   className="btn btn-dark w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2"
+                >Quick Add</button>
         </div>
       </div>
     </div>

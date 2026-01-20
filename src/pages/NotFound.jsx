@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IconExclamationCircle} from '@tabler/icons-react';
+import { IconExclamationCircle, IconHome} from '@tabler/icons-react';
 
 function NotFound(){
     return (
@@ -9,7 +9,7 @@ function NotFound(){
             <p>The page you’re looking for has wandered off like a lost sheep. We’ve looked everywhere, but frankly, even the most righteous links can go astray.  </p>
             <li className="list-group-item p-4">Did you mistype the URL?(Pride comes before a typo).</li>
             <p>Don't panic. Return to the Garden (Home) | Cast your Search again</p>
-            <Link className="btn btn-success btn-lg px-4 gap-3" to='/'>Go Home</Link>
+            <Link className="btn btn-success btn-lg px-4 gap-3" to='/'><IconHome stroke={2} /> Go Home</Link>
         </div>
 
     )

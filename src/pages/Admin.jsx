@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IconTags } from '@tabler/icons-react';
 
 
-function Admin() {
-    // 1. State Declarations
+function Admin( {applications=[]}) {
+    
     const [couponCode, setCouponCode] = useState('');
     const [productTitle, setTitle] = useState('');
     const [productCategory, setCategory] = useState('');
@@ -14,7 +14,6 @@ function Admin() {
     const [coupons, setCoupons] = useState([]);
     const [items, setItems] = useState([]); 
 
-    
     function addProduct() {
         const newProduct = {
             title: productTitle,
@@ -23,9 +22,8 @@ function Admin() {
             price: productPrice
         };
 
-        setItems([...items, newProduct]); // Use setItems
+        setItems([...items, newProduct]); 
         
-        // Clear fields
         setTitle('');
         setCategory('');
         setImage('');
@@ -44,8 +42,6 @@ function Admin() {
         setCouponCode('');
         setCouponDiscount(0);
     }
-
-    // 3. Return Block
     return (
         <div className="container py-4">
             <h1>Store Admin Page</h1>
@@ -71,7 +67,6 @@ function Admin() {
                         </div>
                         <button className='btn btn-primary mt-2' onClick={addProduct}>Add Product</button>
                     </div>
-
                     <div className="mt-4">
                         <h5>Product List</h5>
                         {items.length === 0 ? <p>No products listed</p> : 
@@ -88,7 +83,6 @@ function Admin() {
                         }
                     </div>
                 </section>
-
                 <section className='w-50'>
                     <h3>Add Coupons</h3>
                     <div className="border bg-white p-4">
@@ -113,6 +107,41 @@ function Admin() {
                         </ul>
                     </div>
                 </section>
+                <section className='w-50'>
+                    <h3>Job Applications</h3>
+                    <div className="border bg-white p-4">
+                        <div className="d-flex align-items-center justify-content-between mb-0">
+                            <p className="text-muted small mb-0 text-uppercase fw-bold">Total Applicants</p>
+                            <span className="badge bg-primary rounded-pill">{applications.length}</span>
+                        </div>
+                    </div>
+                    <div className="mt-4">
+                        <h5>Applicant List</h5>
+                        <div className="vstack gap-2">
+                            {applications.length === 0 ? (
+                                <p className="text-muted">No applications received yet.</p>
+                            ) : (
+                                applications.map((app, index) => (
+                                    <div key={index} className="list-group-item border p-3 bg-white shadow-sm">
+                                        <div className="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h6 className="fw-bold mb-1">{app.fullName}</h6>
+                                                <p className="extra-small text-primary mb-2 fw-bold text-uppercase">
+                                                    {app.jobTitle}
+                                                </p>
+                                                <div className="text-muted small">
+                                                    <div className="mb-1">Email: {app.email}</div>
+                                                    <div>Portfolio: <a href={app.portfolio} target="_blank" rel="noreferrer" className="text-decoration-none">View Link</a></div>
+                                                </div>
+                                            </div>
+                                            <span className="text-muted" style={{ fontSize: '10px' }}>{app.date}</span>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                        </div>
+                    </div>
+                </section>   
             </div>
         </div>
     );

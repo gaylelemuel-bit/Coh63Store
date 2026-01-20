@@ -7,6 +7,17 @@ import "./Navbar.css";
 function Navbar() {
 
   const user = useContext(GlobalContext).user
+  const cart =useContext(GlobalContext).cart
+
+  function getTotalItems(){
+    let sum = 0
+
+    for(let i=0; i< cart.length; i++){
+      sum = sum + cart[i].quantity
+    }
+
+    return sum
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
@@ -46,12 +57,11 @@ function Navbar() {
               <Link className="nav-link px-3" to={"/admin"}>Admin</Link>
             </li>
           </ul>
-          <div>
+          <div className="d-flex gap-2">
             <div><IconUserCircle stroke={2} color={'royalblue'} />{user.name}</div>
           </div>
-          
           <div className="ms-lg-3 d-none d-lg-block">
-             <button className="btn btn-outline-dark rounded-pill px-4 btn-sm"><IconShoppingCart stroke={2} />Cart (0)</button>
+             <Link className="btn btn-outline-dark rounded-pill px-4 btn-sm" to={"/cart"}><IconShoppingCart stroke={2} />Cart {getTotalItems()}</Link>
           </div>
         </div>
       </div>

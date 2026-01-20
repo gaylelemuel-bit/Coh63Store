@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import QuantityPicker from "./QuantityPicker";
 import { IconPlus } from '@tabler/icons-react';
+import GlobalContext from "../State/GlobalContext";
 
 function Product(props) {
   const [quantity, setQuantity] = useState(1);
+  const globalAdd = useContext(GlobalContext).addProductToCart
 
   function handleQuantityChange(qty) {
     setQuantity(qty);
@@ -13,9 +15,18 @@ function Product(props) {
     let total = props.data.price * quantity;
     return total.toFixed(2);
   }
+  function onAdd(){
+    console.log("adding to cart...")
+    console.log(props)
+
+    let fixedProduct = {...props.data}
+    fixedProduct.quantity = quantity
+    globalAdd(fixedProduct)
+  }
 
   // Helper to render star strings (e.g., 5 -> ★★★★★)
   const renderStars = (rating) => "★".repeat(rating) + "☆".repeat(5 - rating);
+
 
   return (
     <div className="card h-100 border-0 shadow-sm transition hover-shadow">
@@ -30,15 +41,11 @@ function Product(props) {
       </div>
 
       <div className="card-body d-flex flex-column">
-        {/* Category Badge */}
         <span className="badge bg-secondary-subtle text-secondary text-uppercase mb-2" style={{width: 'max-content'}}>
           {props.data.category}
         </span>
-
-        {/* Dynamic Title */}
         <h5 className="card-title fw-bold mb-1">{props.data.title}</h5>
-
-        {/* NEW: Collapsible Specifications Section */}
+        
         {props.data.specs && (
           <details className="mt-2 mb-3 border rounded p-2">
             <summary className="small fw-bold text-muted pointer">Product Details</summary>
@@ -66,7 +73,6 @@ function Product(props) {
               <small className="text-muted fw-bold d-block mb-1">
                 Reviews ({props.data.reviews.length})
               </small>
-              {/* We show only the first review to keep the card clean, or map all */}
               {props.data.reviews.slice(0, 1).map((rev, index) => (
                 <div key={index} className="bg-light p-2 rounded small">
                   <div className="text-warning mb-1">{renderStars(rev.rating)}</div>
@@ -79,19 +85,15 @@ function Product(props) {
             <small className="text-muted italic">No reviews yet.</small>
           )}
         </div>
-        
-        {/* Pricing Details */}
         <div className="d-flex justify-content-between align-items-center mt-auto mb-3">
           <span className="text-muted small">Unit: ${props.data.price.toFixed(2)}</span>
           <span className="fw-bold text-primary fs-5">Total: ${getTotal()}</span>
         </div>
-
-        {/* Quantity and Actions */}
         <div className="mt-auto">
           <div className="d-flex justify-content-center align-items-center mb-3">
             <QuantityPicker onChange={handleQuantityChange} />
           </div>
-          <button className="btn btn-dark w-100 py-2 rounded-3 shadow-sm" type="button">
+          <button className="btn btn-dark w-100 py-2 rounded-3 shadow-sm" type="button" onClick={onAdd}>
             <IconPlus stroke={2}  /> Add to Cart
           </button>
         </div>
