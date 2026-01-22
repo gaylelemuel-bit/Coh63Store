@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { IconMailOff,IconMail } from '@tabler/icons-react';
+import { IconMailOff,IconMail, IconBrandWhatsapp } from '@tabler/icons-react';
 import './About.css'
 
 function About() {
@@ -179,6 +179,12 @@ function About() {
                     </div>
                 </div>
             </div>
+            <button
+                className="support-fab d-none d-md-flex"
+                onClick={() => window.open('https://wa.me', '_blank')}
+            ><p className='online-dot '></p>
+                <IconBrandWhatsapp stroke={2} color='lime' />Chat
+            </button>
         </>
     );
 }

@@ -1,25 +1,30 @@
 import React, { useEffect,useContext, useRef,useState } from 'react';
 import { Carousel } from 'bootstrap'; 
 import './Home.css';
-import { IconTruckDelivery,IconCubeSend } from '@tabler/icons-react';
+import { IconTruckDelivery,IconCubeSend, IconBrandWhatsapp    } from '@tabler/icons-react';
 import GlobalContext from "../State/GlobalContext";
 
 
 function Home() {
   const carouselRef = useRef(null);
   const globalAdd = useContext(GlobalContext).addProductToCart;
+  const [selectedSizes, setSelectedSizes] = useState({});
+
 
   const onAdd = (product) => {
     console.log("Adding to cart:", product.name);
+    const chosenSize = selectedSizes[product.id] || "M";
+
      const fixedProduct = {
       _id: product.id,
       title: product.name,
       image: product.img,
       price: parseFloat(product.price.replace('$', '')), 
-      quantity: 1 
+      quantity: 1, 
+      selectedSize: chosenSize
     };
      globalAdd(fixedProduct);
-    alert(`${product.name} added to cart!`);
+    alert(`${product.name} (${chosenSize}) added to cart!`);
   };
 
   const productImages = [
@@ -37,14 +42,14 @@ function Home() {
   ];
 
   const latestDrops = [
-  { id: 1, name: "Love Never Fails Hoodiet", price: "$14.99", img: "https://img4.dhresource.com/webp/m/260x260/f3/albu/ys/s/11/92575606-c7ef-42a4-a950-8ccf4315cfbb.png" },
-  { id: 2, name: "Jesus Matching set", price: "$39.99", img: "https://i5.walmartimages.com/seo/Kids-Clothes-Boys-Kids-Sweatsuit-Hoodie-Pants-Jesus-Letter-Print-Sweatshirt-Joggers-2-Piece-Sets-Toddler-Outfits-Boys-Grey-12-Years-13-Years_2f6d767e-bf03-4e3d-a7f1-673439557576.696fb3aa5b9fe36fbd4595d9ca8fa49d.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" },
-  { id: 3, name: "Heavyweight Hoodie", price: "$19.99", img: "https://m.media-amazon.com/images/I/61fQFztf-uL._AC_SL1500_.jpg" },
-  { id: 4, name: "Royalty Hoodie", price: "$29.99", img: "https://img4.dhresource.com/webp/m/f3/albu/jc/n/16/08336417-49e6-4be9-8643-19187f138b29.jpg" },
-  { id: 5, name: "Genesis Crewneck", price: "$39.99", img: "https://lordsguidance.com/cdn/shop/products/TracksuitStyle1Red_6e8fbea6-80f1-41c9-9e4e-284c895582d8_2048x2048.png?v=1679571442" },
-  { id: 6, name: "But God Crewneck", price: "$12.99", img: "https://m.media-amazon.com/images/I/61ju6zlYblL._AC_SL1300_.jpg" },
-  { id: 7, name: "Royalty set", price: "$34.99", img: "https://img-va.myshopline.com/image/store/1660029927621/Follow-Jesus-And-Fruit-Peace-Christian-Fleece-Hoodie-Set2.jpeg?w=1000&h=1000" },
-  { id: 8, name: "Faith Hoodie", price: "$14.99", img: "https://i5.walmartimages.com/seo/Wild-Bobby-Cute-Christian-Quote-Faith-Over-Fear-Inspirational-Christian-Unisex-Graphic-Hoodie-Sweatshirt-Light-Pink-X-Large_79cb3aaa-2edc-4903-aea9-6822386eb913.bc877b4663392f853805de6efbdf0676.jpeg" },
+  { id: 1, name: "Love Never Fails Hoodiet", price: "$14.99", img: "https://img4.dhresource.com/webp/m/260x260/f3/albu/ys/s/11/92575606-c7ef-42a4-a950-8ccf4315cfbb.png", badge: "Best Seller" },
+  { id: 2, name: "Jesus Matching set", price: "$39.99", img: "https://i5.walmartimages.com/seo/Kids-Clothes-Boys-Kids-Sweatsuit-Hoodie-Pants-Jesus-Letter-Print-Sweatshirt-Joggers-2-Piece-Sets-Toddler-Outfits-Boys-Grey-12-Years-13-Years_2f6d767e-bf03-4e3d-a7f1-673439557576.696fb3aa5b9fe36fbd4595d9ca8fa49d.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",badge: "New " },
+  { id: 3, name: "Heavyweight Hoodie", price: "$19.99", img: "https://img-va.myshopline.com/image/store/1674978680596/1736758010558SCMpCF7WtOgsb79T.jpg?w=1000&h=1000",badge: "New " },
+  { id: 4, name: "Royalty Hoodie", price: "$29.99", img: "https://img4.dhresource.com/webp/m/f3/albu/jc/n/16/08336417-49e6-4be9-8643-19187f138b29.jpg",badge: "New " },
+  { id: 5, name: "Genesis Crewneck", price: "$39.99", img: "https://lordsguidance.com/cdn/shop/products/TracksuitStyle1Red_6e8fbea6-80f1-41c9-9e4e-284c895582d8_2048x2048.png?v=1679571442",badge: "New " },
+  { id: 6, name: "But God Crewneck", price: "$12.99", img: "https://m.media-amazon.com/images/I/61ju6zlYblL._AC_SL1300_.jpg",badge: "New "  },
+  { id: 7, name: "Royalty set", price: "$34.99", img: "https://img-va.myshopline.com/image/store/1660029927621/Follow-Jesus-And-Fruit-Peace-Christian-Fleece-Hoodie-Set2.jpeg?w=1000&h=1000",badge: "New " },
+  { id: 8, name: "Faith Hoodie", price: "$14.99", img: "https://i5.walmartimages.com/seo/Wild-Bobby-Cute-Christian-Quote-Faith-Over-Fear-Inspirational-Christian-Unisex-Graphic-Hoodie-Sweatshirt-Light-Pink-X-Large_79cb3aaa-2edc-4903-aea9-6822386eb913.bc877b4663392f853805de6efbdf0676.jpeg",badge: "New " },
 ];
 
   useEffect(() => {
@@ -120,6 +125,7 @@ function Home() {
         </button>
       </div>
     </div>
+
         {/* 4. New: Product Grid Section */}
       <div className="row g-4">
   <div className="col-12 mb-2">
@@ -130,6 +136,14 @@ function Home() {
     <div key={product.id} className="col-5 col-md-3">
       <div className="card border-0 group shadow-hover transition-all">
         <div className="position-relative overflow-hidden rounded-3">
+        {product.badge && (
+          <span 
+            className="position-absolute top-0 start-0 m-2 badge rounded-pill bg-danger shadow-sm"
+            style={{ zIndex: 10, fontSize: '0.7rem', letterSpacing: '0.05em' }}
+          >
+            {product.badge.toUpperCase()}
+          </span>
+        )}
           <img 
             src={product.img} 
             className="img-fluid w-100 object-fit-cover" 
@@ -139,15 +153,36 @@ function Home() {
         <div className="pt-3">
           <h6 className="m-0 p-0 fw-bold">{product.name}</h6>
           <p className="text-muted small mb-4">{product.price}</p>
-              <button 
-                onClick={() => onAdd(product)}
-                   className="btn btn-dark w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2"
-                >Quick Add</button>
+        <select 
+          className="form-select form-select-sm mb-3"
+          value={selectedSizes[product.id] || "M"}
+          onChange={(e) => setSelectedSizes({
+            ...selectedSizes, 
+            [product.id]: e.target.value
+          })}
+        >
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+          </select>
+          <button
+            onClick={() => onAdd(product)}
+            className="btn btn-dark w-100 btn-sm d-flex align-items-center justify-content-center gap-2 py-2"
+          >Quick Add</button>
         </div>
       </div>
     </div>
   ))}
-</div>     
+      </div>
+      <button
+        className="support-fab d-none d-md-flex"
+        onClick={() => window.open('https://wa.me', '_blank')}
+      ><p className='online-dot '></p>
+        <IconBrandWhatsapp stroke={2} color='lime' />Chat
+      </button>
+
     </>
   );
 }

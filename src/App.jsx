@@ -58,7 +58,6 @@ function App() {
         <Route path='faq' element={<FaqPage/>}></Route>
         <Route path='/size-guide' element={<SizeGuide/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
-
         </Routes>
         </main>
        <Footerbar/> 

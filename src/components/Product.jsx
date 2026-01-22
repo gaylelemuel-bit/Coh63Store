@@ -5,7 +5,11 @@ import GlobalContext from "../State/GlobalContext";
 
 function Product(props) {
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState(props.data.sizes ? props.data.sizes[0] : "");
+
   const globalAdd = useContext(GlobalContext).addProductToCart
+  
+
 
   function handleQuantityChange(qty) {
     setQuantity(qty);
@@ -21,6 +25,7 @@ function Product(props) {
 
     let fixedProduct = {...props.data}
     fixedProduct.quantity = quantity
+    fixedProduct.selectedSize = size;
     globalAdd(fixedProduct)
   }
 
@@ -32,20 +37,37 @@ function Product(props) {
     <div className="card h-100 border-0 shadow-sm transition hover-shadow">
       {/* Product Image Section */}
       <div className="p-3 bg-light rounded-top text-center">
-        <img 
-          src={props.data.image} 
-          className="card-img-top object-fit-contain" 
-          style={{ height: "180px" }} 
-          alt={props.data.title} 
+        <img
+          src={props.data.image}
+          className="card-img-top object-fit-contain"
+          style={{ height: "180px" }}
+          alt={props.data.title}
         />
       </div>
 
       <div className="card-body d-flex flex-column">
-        <span className="badge bg-secondary-subtle text-secondary text-uppercase mb-2" style={{width: 'max-content'}}>
+        <span className="badge bg-secondary-subtle text-secondary text-uppercase mb-2" style={{ width: 'max-content' }}>
           {props.data.category}
         </span>
         <h5 className="card-title fw-bold mb-1">{props.data.title}</h5>
-        
+        {props.data.sizes && (
+          <div className="mb-3">
+            <label className="small fw-bold text-muted d-block mb-1">Select Size</label>
+            <div className="row g-2">
+              {props.data.sizes.map((s) => (
+                <div key={s} className="col-3">
+                  <button
+                    type="button"
+                    onClick={() => setSize(s)}
+                    className={`btn btn-sm w-100 ${size === s ? 'btn-dark' : 'btn-outline-secondary'}`}
+                  >
+                    {s}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         {props.data.specs && (
           <details className="mt-2 mb-3 border rounded p-2">
             <summary className="small fw-bold text-muted pointer">Product Details</summary>

@@ -2,6 +2,7 @@ import "./Catalog.css";
 import { useEffect, useState } from "react";
 import DataService from "../services/dataService";
 import Product from "../components/Product"; 
+import {IconBrandWhatsapp} from '@tabler/icons-react';
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -45,29 +46,38 @@ function Catalog() {
     setProductsToShow(products);
   }
  
-return (
-  <div className="catalog-page-container container-fluid py-5 px-lg-5">
-    <header className="text-center mb-5">
-      <h1 className="display-4 fw-bold text-dark">Our Collection</h1>
-      <p className="lead text-muted">Premium apparel designed for comfort and style.</p>
-      
-      <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
-        <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={clearFilter}>All</button>
-        <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("clothing")}>Clothing</button>
-        <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("shoes")}>Shoes</button>
-        <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("accessories")}>Accessories</button>
-      </div>
-    </header>
+  return (
+    <>
+      <div className="catalog-page-container container-fluid py-5 px-lg-5">
+        <header className="text-center mb-5">
+          <h1 className="display-4 fw-bold text-dark">Our Collection</h1>
+          <p className="lead text-muted">Premium apparel designed for comfort and style.</p>
 
-    <div className="row g-4">
-      {productsToShow.map(prod => (
-        <div key={prod._id} className="col-12 col-lg-4 col-xl-3">
-          <Product data={prod} />
+          <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+            <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={clearFilter}>All</button>
+            <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("clothing")}>Clothing</button>
+            <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("shoes")}>Shoes</button>
+            <button className="btn btn-outline-dark rounded-pill px-4 shadow-sm" onClick={() => filter("accessories")}>Accessories</button>
+          </div>
+        </header>
+        <div className="row g-4">
+          {productsToShow.map(prod => (
+            <div key={prod._id} className="col-12 col-lg-4 col-xl-3">
+              <Product data={prod} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  </div>
-);
+      </div>
+      <button
+        className="support-fab d-none d-md-flex"
+        onClick={() => window.open('https://wa.me', '_blank')}
+      ><p className='online-dot '></p>
+        <IconBrandWhatsapp stroke={2} color='lime' />Chat
+      </button>
+    </>
+  );
 }
+
+
 
 export default Catalog;
